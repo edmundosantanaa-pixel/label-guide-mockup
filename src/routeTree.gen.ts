@@ -10,11 +10,18 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as GraciasRouteImport } from './routes/gracias'
 import { Route as VendaRouteImport } from './routes/venda'
+import { Route as VentaRouteImport } from './routes/venta'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GraciasRoute = GraciasRouteImport.update({
+  id: '/gracias',
+  path: '/gracias',
   getParentRoute: () => rootRouteImport,
 } as any)
 const VendaRoute = VendaRouteImport.update({
@@ -22,31 +29,44 @@ const VendaRoute = VendaRouteImport.update({
   path: '/venda',
   getParentRoute: () => rootRouteImport,
 } as any)
+const VentaRoute = VentaRouteImport.update({
+  id: '/venta',
+  path: '/venta',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/gracias': typeof GraciasRoute
   '/venda': typeof VendaRoute
+  '/venta': typeof VentaRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/gracias': typeof GraciasRoute
   '/venda': typeof VendaRoute
+  '/venta': typeof VentaRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/gracias': typeof GraciasRoute
   '/venda': typeof VendaRoute
+  '/venta': typeof VentaRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/venda'
+  fullPaths: '/' | '/gracias' | '/venda' | '/venta'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/venda'
-  id: '__root__' | '/' | '/venda'
+  to: '/' | '/gracias' | '/venda' | '/venta'
+  id: '__root__' | '/' | '/gracias' | '/venda' | '/venta'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  GraciasRoute: typeof GraciasRoute
   VendaRoute: typeof VendaRoute
+  VentaRoute: typeof VentaRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -58,6 +78,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/gracias': {
+      id: '/gracias'
+      path: '/gracias'
+      fullPath: '/gracias'
+      preLoaderRoute: typeof GraciasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/venda': {
       id: '/venda'
       path: '/venda'
@@ -65,12 +92,21 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof VendaRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/venta': {
+      id: '/venta'
+      path: '/venta'
+      fullPath: '/venta'
+      preLoaderRoute: typeof VentaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  GraciasRoute: GraciasRoute,
   VendaRoute: VendaRoute,
+  VentaRoute: VentaRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
