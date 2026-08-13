@@ -32,7 +32,7 @@ export const Route = createFileRoute("/")({
 
 // IMPORTANT: substitua pelo número de WhatsApp real do suporte antes de publicar.
 const WHATSAPP_SUPPORT_NUMBER = "5511999999999";
-const SUPPORT_EMAIL = "suporte@codigodocentenario.com";
+const SUPPORT_EMAIL = "edmundodossantossantana27@gmail.com";
 
 function WhatsAppIcon({ className }: { className?: string }) {
   return (
