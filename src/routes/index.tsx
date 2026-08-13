@@ -124,7 +124,7 @@ function ThankYouPage() {
               number={1}
               icon={Mail}
               title="Verifique seu e-mail"
-              description={`Acesse o e-mail cadastrado na Hotmart. Enviamos uma mensagem com o assunto "Acesso ao Código do Centenário"."`}
+              description='Acesse o e-mail cadastrado na Hotmart. Enviamos uma mensagem com o assunto "Acesso ao Código do Centenário".'
             />
             <Step
               number={2}
