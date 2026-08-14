@@ -163,3 +163,98 @@
     color: var(--color-foreground);
   }
 }
+
+/* ============================================================
+   Sales page design system (Código do Centenário)
+   ============================================================ */
+@theme {
+  --color-forest-950: #0a1f15;
+  --color-forest-900: #0d2818;
+  --color-forest-800: #133322;
+  --color-forest-700: #1a4530;
+  --color-forest-600: #225a3f;
+  --color-neon-400: #4ade80;
+  --color-neon-500: #22c55e;
+  --color-neon-600: #16a34a;
+  --color-lilac-300: #d8b4fe;
+  --color-lilac-400: #c084fc;
+  --color-lilac-500: #a855f7;
+  --color-cream: #f8f5f0;
+  --font-heading: Outfit, ui-sans-serif, system-ui, sans-serif;
+  --font-body: Inter, ui-sans-serif, system-ui, sans-serif;
+  --animate-fade-in-up: fadeInUp 0.8s ease-out forwards;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-shimmer: shimmer 2.5s linear infinite;
+  --animate-pulse-slow: pulseSlow 3s ease-in-out infinite;
+}
+
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+@keyframes pulseSlow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.sales-root {
+  background-color: var(--color-forest-950);
+  color: var(--color-cream);
+  font-family: var(--font-body);
+  font-size: 1.25rem;
+  line-height: 1.75;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+}
+.sales-root h1,
+.sales-root h2,
+.sales-root h3,
+.sales-root h4 {
+  font-family: var(--font-heading);
+}
+
+@layer components {
+  .container-sales {
+    @apply max-w-5xl mx-auto px-5 sm:px-6;
+  }
+  .btn-cta {
+    @apply inline-flex items-center justify-center gap-3 px-8 py-5 rounded-2xl font-heading font-bold text-lg sm:text-xl text-forest-950 bg-gradient-to-r from-neon-400 to-neon-500 hover:from-neon-500 hover:to-neon-600 shadow-lg shadow-neon-500/30 transition-all duration-300 hover:scale-105 hover:shadow-neon-500/50 w-full sm:w-auto;
+  }
+  .btn-cta-secondary {
+    @apply inline-flex items-center justify-center gap-3 px-8 py-5 rounded-2xl font-heading font-bold text-lg sm:text-xl text-cream bg-forest-700 hover:bg-forest-600 border border-neon-500/30 transition-all duration-300 hover:scale-105 w-full sm:w-auto;
+  }
+  .section-title {
+    @apply font-heading font-extrabold text-3xl sm:text-4xl md:text-5xl text-cream leading-tight;
+  }
+  .section-subtitle {
+    @apply text-neon-400 font-heading font-semibold text-lg sm:text-xl mt-3;
+  }
+  .body-text {
+    @apply text-cream/85 text-[1.25rem] sm:text-[1.375rem] leading-[1.75];
+  }
+  .card-glow {
+    @apply bg-forest-900/80 border border-neon-500/20 rounded-3xl p-6 sm:p-8 backdrop-blur-sm transition-all duration-500 hover:border-neon-500/40 hover:shadow-xl hover:shadow-neon-500/10;
+  }
+}
+
+@utility text-shimmer {
+  background: linear-gradient(90deg, #4ade80, #a855f7, #4ade80);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 3s linear infinite;
+}
+@utility scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar { display: none; }
+}
