@@ -109,14 +109,16 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   const router = useRouter();
-  const lang = useMemo(() => {
+  const { lang, translate } = useMemo(() => {
     const path = router.state.location.pathname;
-    if (path.startsWith("/venta") || path.startsWith("/gracias")) return "es";
-    return "pt-BR";
+    if (path.startsWith("/venta") || path.startsWith("/gracias")) {
+      return { lang: "es", translate: "no" as const };
+    }
+    return { lang: "pt-BR", translate: "yes" as const };
   }, [router.state.location.pathname]);
 
   return (
-    <html lang={lang}>
+    <html lang={lang} translate={translate}>
       <head>
         <HeadContent />
       </head>
