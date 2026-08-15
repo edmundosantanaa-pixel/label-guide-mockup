@@ -7,7 +7,7 @@ import {
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
-import { useEffect, type ReactNode } from "react";
+import { useEffect, useMemo, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
@@ -108,8 +108,17 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 });
 
 function RootShell({ children }: { children: ReactNode }) {
+  const router = useRouter();
+  const { lang, translate } = useMemo(() => {
+    const path = router.state.location.pathname;
+    if (path.startsWith("/venta") || path.startsWith("/gracias")) {
+      return { lang: "es", translate: "no" as const };
+    }
+    return { lang: "pt-BR", translate: "yes" as const };
+  }, [router.state.location.pathname]);
+
   return (
-    <html lang="en">
+    <html lang={lang} translate={translate}>
       <head>
         <HeadContent />
       </head>
