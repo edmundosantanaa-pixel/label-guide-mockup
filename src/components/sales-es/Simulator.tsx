@@ -1,10 +1,12 @@
 import { useState, useMemo } from 'react'
+import { Moon, Droplets, Footprints, Pizza, Salad, BrainCog, Wine, Sun, type LucideIcon } from 'lucide-react'
+
 import { HOTMART_LINK } from './data'
 
 type Habit = {
   id: string
   label: string
-  icon: string
+  icon: LucideIcon
   min: number
   max: number
   step: number
@@ -19,7 +21,7 @@ const habits: Habit[] = [
   {
     id: 'sleep',
     label: 'Horas de sueño por noche',
-    icon: '😴',
+    icon: Moon,
     min: 3,
     max: 10,
     step: 0.5,
@@ -30,7 +32,7 @@ const habits: Habit[] = [
   {
     id: 'water',
     label: 'Vasos de agua al día',
-    icon: '💧',
+    icon: Droplets,
     min: 0,
     max: 12,
     step: 1,
@@ -41,7 +43,7 @@ const habits: Habit[] = [
   {
     id: 'exercise',
     label: 'Días de ejercicio por semana',
-    icon: '🏃',
+    icon: Footprints,
     min: 0,
     max: 7,
     step: 1,
@@ -52,7 +54,7 @@ const habits: Habit[] = [
   {
     id: 'processed',
     label: 'Comidas procesadas por semana',
-    icon: '🍔',
+    icon: Pizza,
     min: 0,
     max: 21,
     step: 1,
@@ -63,7 +65,7 @@ const habits: Habit[] = [
   {
     id: 'vegetables',
     label: 'Porciones de vegetales al día',
-    icon: '🥬',
+    icon: Salad,
     min: 0,
     max: 8,
     step: 1,
@@ -74,7 +76,7 @@ const habits: Habit[] = [
   {
     id: 'stress',
     label: 'Nivel de estrés',
-    icon: '😰',
+    icon: BrainCog,
     min: 1,
     max: 10,
     step: 1,
@@ -85,7 +87,7 @@ const habits: Habit[] = [
   {
     id: 'alcohol',
     label: 'Bebidas alcohólicas por semana',
-    icon: '🍷',
+    icon: Wine,
     min: 0,
     max: 21,
     step: 1,
@@ -96,7 +98,7 @@ const habits: Habit[] = [
   {
     id: 'sun',
     label: 'Minutos de sol al día',
-    icon: '☀️',
+    icon: Sun,
     min: 0,
     max: 120,
     step: 10,
@@ -266,11 +268,13 @@ export default function Simulator() {
           {habits.map((habit) => (
             <div
               key={habit.id}
-              className="card-glow !p-5 sm:!p-6"
+              className="card-glow !p-5 sm:!p-6 group"
             >
               <div className="flex items-center justify-between mb-3">
                 <div className="flex items-center gap-3">
-                  <span className="text-2xl">{habit.icon}</span>
+                  <span className="flex-shrink-0 grid place-items-center w-11 h-11 rounded-xl bg-gradient-to-br from-neon-500/25 to-lilac-500/15 border border-neon-500/25 shadow-[0_0_18px_-6px_rgba(34,197,94,0.6)] transition-all duration-300 group-hover:scale-105 group-hover:border-neon-400/50">
+                    <habit.icon className="w-5 h-5 text-neon-300" strokeWidth={1.75} />
+                  </span>
                   <span className="font-heading font-semibold text-[1.125rem] sm:text-[1.25rem] text-cream">
                     {habit.label}
                   </span>
