@@ -1,4 +1,4 @@
-export const HOTMART_LINK = 'https://pay.hotmart.com/H106772542D'
+export const HOTMART_LINK = 'https://pay.hotmart.com/H106772542D?checkoutMode=10'
 
 export const testimonials = [
   {
