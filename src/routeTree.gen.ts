@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as GraciasRouteImport } from './routes/gracias'
+import { Route as ObrigadoRouteImport } from './routes/obrigado'
 import { Route as VendaRouteImport } from './routes/venda'
 import { Route as VentaRouteImport } from './routes/venta'
 
@@ -22,6 +23,11 @@ const IndexRoute = IndexRouteImport.update({
 const GraciasRoute = GraciasRouteImport.update({
   id: '/gracias',
   path: '/gracias',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ObrigadoRoute = ObrigadoRouteImport.update({
+  id: '/obrigado',
+  path: '/obrigado',
   getParentRoute: () => rootRouteImport,
 } as any)
 const VendaRoute = VendaRouteImport.update({
@@ -38,12 +44,14 @@ const VentaRoute = VentaRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/gracias': typeof GraciasRoute
+  '/obrigado': typeof ObrigadoRoute
   '/venda': typeof VendaRoute
   '/venta': typeof VentaRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/gracias': typeof GraciasRoute
+  '/obrigado': typeof ObrigadoRoute
   '/venda': typeof VendaRoute
   '/venta': typeof VentaRoute
 }
@@ -51,20 +59,22 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/gracias': typeof GraciasRoute
+  '/obrigado': typeof ObrigadoRoute
   '/venda': typeof VendaRoute
   '/venta': typeof VentaRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/gracias' | '/venda' | '/venta'
+  fullPaths: '/' | '/gracias' | '/obrigado' | '/venda' | '/venta'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/gracias' | '/venda' | '/venta'
-  id: '__root__' | '/' | '/gracias' | '/venda' | '/venta'
+  to: '/' | '/gracias' | '/obrigado' | '/venda' | '/venta'
+  id: '__root__' | '/' | '/gracias' | '/obrigado' | '/venda' | '/venta'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   GraciasRoute: typeof GraciasRoute
+  ObrigadoRoute: typeof ObrigadoRoute
   VendaRoute: typeof VendaRoute
   VentaRoute: typeof VentaRoute
 }
@@ -83,6 +93,13 @@ declare module '@tanstack/react-router' {
       path: '/gracias'
       fullPath: '/gracias'
       preLoaderRoute: typeof GraciasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/obrigado': {
+      id: '/obrigado'
+      path: '/obrigado'
+      fullPath: '/obrigado'
+      preLoaderRoute: typeof ObrigadoRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/venda': {
@@ -105,6 +122,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   GraciasRoute: GraciasRoute,
+  ObrigadoRoute: ObrigadoRoute,
   VendaRoute: VendaRoute,
   VentaRoute: VentaRoute,
 }
