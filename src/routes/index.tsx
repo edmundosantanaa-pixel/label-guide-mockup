@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 
 import CountdownBar from "../components/sales/CountdownBar";
+import AudioDemo from "../components/sales/AudioDemo";
 import Simulator from "../components/sales/Simulator";
 import Hero from "../components/sales/Hero";
 import Pain from "../components/sales/Pain";
@@ -62,6 +63,7 @@ function SalesPage() {
       <Pain />
       <ProductPresentation />
       <Chapters />
+      <AudioDemo />
       <Testimonials />
       <Bonuses />
       <Offer />
