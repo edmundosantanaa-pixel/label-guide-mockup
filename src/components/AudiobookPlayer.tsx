@@ -100,8 +100,9 @@ export default function AudiobookPlayer({
   // Carrega a faixa selecionada; continua tocando ao trocar de faixa.
   useEffect(() => {
     const audio = audioRef.current;
-    if (!audio) return;
-    audio.src = tracks[current].src;
+    const src = tracks[current]?.src;
+    if (!audio || !src) return;
+    audio.src = src;
     audio.load();
     setCurrentTime(0);
     setDuration(0);
@@ -196,7 +197,7 @@ export default function AudiobookPlayer({
 
           <div className="min-w-0 flex-1">
             <p className={cn("truncate text-base font-semibold", t.heading)}>
-              {tracks[current].title}
+              {tracks[current]?.title ?? ""}
             </p>
             <div className="mt-2 flex items-center gap-3">
               <span
