@@ -1,5 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { CheckCircle2, Mail, Search, Download, HelpCircle } from "lucide-react";
+import {
+  CheckCircle2,
+  Headphones,
+  HelpCircle,
+  Mail,
+  Search,
+  Download,
+} from "lucide-react";
+
+import AudiobookPlayer from "@/components/AudiobookPlayer";
 
 export const Route = createFileRoute("/obrigado")({
   head: () => ({
@@ -38,6 +47,17 @@ export const Route = createFileRoute("/obrigado")({
 
 const WHATSAPP_SUPPORT_NUMBER = "5511963098559";
 const SUPPORT_EMAIL = "edmundodossantossantana27@gmail.com";
+
+const AUDIOBOOK_TRACKS = [
+  { title: "Introdução", src: "/audio/introducao.mp3" },
+  { title: "Capítulo 01", src: "/audio/capitulo-01.mp3" },
+  { title: "Capítulo 02", src: "/audio/capitulo-02.mp3" },
+  { title: "Capítulo 03", src: "/audio/capitulo-03.mp3" },
+  { title: "Capítulo 04", src: "/audio/capitulo-04.mp3" },
+  { title: "Capítulo 05", src: "/audio/capitulo-05.mp3" },
+  { title: "Capítulo 06", src: "/audio/capitulo-06.mp3" },
+  { title: "Capítulo 07", src: "/audio/capitulo-07.mp3" },
+];
 
 function WhatsAppIcon({ className }: { className?: string }) {
   return (
@@ -144,6 +164,23 @@ function ThankYouPage() {
               description="No e-mail, clique no link para baixar seu e-book em PDF e todos os materiais complementares."
             />
           </ol>
+        </section>
+
+        {/* Audiolivro Completo — Exclusivo para Compradores */}
+        <section className="mt-8 w-full rounded-3xl border border-border bg-card/80 p-6 shadow-sm backdrop-blur-sm sm:p-8">
+          <div className="flex items-center gap-2">
+            <Headphones className="h-5 w-5 text-success" />
+            <h2 className="text-xl font-bold text-foreground">
+              Audiolivro Completo — Exclusivo para compradores
+            </h2>
+          </div>
+          <p className="mt-2 text-sm text-muted-foreground">
+            Escute onde e quando quiser: no carro, na caminhada ou em casa.
+            Toque em uma faixa para começar a ouvir.
+          </p>
+          <div className="mt-6">
+            <AudiobookPlayer variant="light" tracks={AUDIOBOOK_TRACKS} />
+          </div>
         </section>
 
         {/* Seção de Suporte ao Cliente */}
