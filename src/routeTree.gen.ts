@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as GraciasRouteImport } from './routes/gracias'
 import { Route as ObrigadoRouteImport } from './routes/obrigado'
+import { Route as PagamentoPendenteRouteImport } from './routes/pagamento-pendente'
 import { Route as VendaRouteImport } from './routes/venda'
 import { Route as VentaRouteImport } from './routes/venta'
 
@@ -30,6 +31,11 @@ const ObrigadoRoute = ObrigadoRouteImport.update({
   path: '/obrigado',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PagamentoPendenteRoute = PagamentoPendenteRouteImport.update({
+  id: '/pagamento-pendente',
+  path: '/pagamento-pendente',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const VendaRoute = VendaRouteImport.update({
   id: '/venda',
   path: '/venda',
@@ -45,6 +51,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/gracias': typeof GraciasRoute
   '/obrigado': typeof ObrigadoRoute
+  '/pagamento-pendente': typeof PagamentoPendenteRoute
   '/venda': typeof VendaRoute
   '/venta': typeof VentaRoute
 }
@@ -52,6 +59,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/gracias': typeof GraciasRoute
   '/obrigado': typeof ObrigadoRoute
+  '/pagamento-pendente': typeof PagamentoPendenteRoute
   '/venda': typeof VendaRoute
   '/venta': typeof VentaRoute
 }
@@ -60,21 +68,32 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/gracias': typeof GraciasRoute
   '/obrigado': typeof ObrigadoRoute
+  '/pagamento-pendente': typeof PagamentoPendenteRoute
   '/venda': typeof VendaRoute
   '/venta': typeof VentaRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/gracias' | '/obrigado' | '/venda' | '/venta'
+  fullPaths:
+    '/' | '/gracias' | '/obrigado' | '/pagamento-pendente' | '/venda' | '/venta'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/gracias' | '/obrigado' | '/venda' | '/venta'
-  id: '__root__' | '/' | '/gracias' | '/obrigado' | '/venda' | '/venta'
+  to:
+    '/' | '/gracias' | '/obrigado' | '/pagamento-pendente' | '/venda' | '/venta'
+  id:
+    | '__root__'
+    | '/'
+    | '/gracias'
+    | '/obrigado'
+    | '/pagamento-pendente'
+    | '/venda'
+    | '/venta'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   GraciasRoute: typeof GraciasRoute
   ObrigadoRoute: typeof ObrigadoRoute
+  PagamentoPendenteRoute: typeof PagamentoPendenteRoute
   VendaRoute: typeof VendaRoute
   VentaRoute: typeof VentaRoute
 }
@@ -102,6 +121,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ObrigadoRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/pagamento-pendente': {
+      id: '/pagamento-pendente'
+      path: '/pagamento-pendente'
+      fullPath: '/pagamento-pendente'
+      preLoaderRoute: typeof PagamentoPendenteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/venda': {
       id: '/venda'
       path: '/venda'
@@ -123,6 +149,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   GraciasRoute: GraciasRoute,
   ObrigadoRoute: ObrigadoRoute,
+  PagamentoPendenteRoute: PagamentoPendenteRoute,
   VendaRoute: VendaRoute,
   VentaRoute: VentaRoute,
 }
