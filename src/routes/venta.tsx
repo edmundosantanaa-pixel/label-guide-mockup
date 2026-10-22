@@ -6,6 +6,7 @@ import Hero from "../components/sales-es/Hero";
 import Pain from "../components/sales-es/Pain";
 import ProductPresentation from "../components/sales-es/ProductPresentation";
 import Chapters from "../components/sales-es/Chapters";
+import AudioDemo from "../components/sales-es/AudioDemo";
 import Testimonials from "../components/sales-es/Testimonials";
 import Bonuses from "../components/sales-es/Bonuses";
 import Offer from "../components/sales-es/Offer";
@@ -62,6 +63,7 @@ function SalesPageES() {
       <Pain />
       <ProductPresentation />
       <Chapters />
+      <AudioDemo />
       <Testimonials />
       <Bonuses />
       <Offer />
