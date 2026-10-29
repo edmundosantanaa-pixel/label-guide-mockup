@@ -1,5 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { CheckCircle2, Mail, Search, Download, HelpCircle } from "lucide-react";
+import {
+  CheckCircle2,
+  Headphones,
+  Mail,
+  Search,
+  Download,
+  HelpCircle,
+} from "lucide-react";
+
+import AudiobookPlayer from "@/components/AudiobookPlayer";
 
 export const Route = createFileRoute("/gracias")({
   head: () => ({
@@ -33,6 +42,17 @@ export const Route = createFileRoute("/gracias")({
 // IMPORTANTE: reemplaza por el número real de WhatsApp de soporte antes de publicar.
 const WHATSAPP_SUPPORT_NUMBER = "5511963098559";
 const SUPPORT_EMAIL = "edmundodossantossantana27@gmail.com";
+
+const AUDIOBOOK_TRACKS_ES = [
+  { title: "Introducción", src: "/audio/es/introducao.mp3" },
+  { title: "Capítulo 01", src: "/audio/es/capitulo-01.mp3" },
+  { title: "Capítulo 02", src: "/audio/es/capitulo-02.mp3" },
+  { title: "Capítulo 03", src: "/audio/es/capitulo-03.mp3" },
+  { title: "Capítulo 04", src: "/audio/es/capitulo-04.mp3" },
+  { title: "Capítulo 05", src: "/audio/es/capitulo-05.mp3" },
+  { title: "Capítulo 06", src: "/audio/es/capitulo-06.mp3" },
+  { title: "Capítulo 07", src: "/audio/es/capitulo-07.mp3" },
+];
 
 function WhatsAppIcon({ className }: { className?: string }) {
   return (
@@ -137,6 +157,23 @@ function ThankYouPageES() {
               description="En el correo, haz clic en el enlace para descargar tu e-book en PDF y todos los materiales complementarios."
             />
           </ol>
+        </section>
+
+        {/* Audiolibro completo — Exclusivo para compradores */}
+        <section className="mt-8 w-full rounded-3xl border border-border bg-card/80 p-6 shadow-sm backdrop-blur-sm sm:p-8">
+          <div className="flex items-center gap-2">
+            <Headphones className="h-5 w-5 text-success" />
+            <h2 className="text-xl font-bold text-foreground">
+              Audiolibro completo — Exclusivo para compradores
+            </h2>
+          </div>
+          <p className="mt-2 text-sm text-muted-foreground">
+            Escucha donde y cuando quieras: en el auto, caminando o en casa.
+            Toca una pista para comenzar a escuchar.
+          </p>
+          <div className="mt-6">
+            <AudiobookPlayer variant="light" tracks={AUDIOBOOK_TRACKS_ES} />
+          </div>
         </section>
 
         <section className="mt-8 w-full rounded-3xl border border-border bg-sky/30 p-6 shadow-sm backdrop-blur-sm sm:p-8">
