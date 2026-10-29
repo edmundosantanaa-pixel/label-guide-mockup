@@ -32,7 +32,7 @@ export default function AudioDemo() {
               tracks={[
                 {
                   title: "Introducción — El Código del Centenario",
-                  src: "/audio/introducao.mp3",
+                  src: "/audio/es/introducao.mp3",
                 },
               ]}
             />
