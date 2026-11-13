@@ -103,8 +103,8 @@ export const orderBumps = [
     icon: '🥗',
     description:
       'Menús prácticos y sustituciones rápidas para eliminar la inflamación silenciosa y aumentar tu energía diaria.',
-    originalPrice: 'US$ 19,00',
-    bumpPrice: 'US$ 5,90',
+    originalPrice: 'US$ 6,90',
+    bumpPrice: 'US$ 3,90',
     accent: 'neon' as const,
   },
   {
@@ -113,8 +113,8 @@ export const orderBumps = [
     icon: '🎧',
     description:
       'Escucha todo el manual mientras haces ejercicio, cocinas o manejas. Practicidad total para absorber el contenido.',
-    originalPrice: 'US$ 13,00',
-    bumpPrice: 'US$ 3,90',
+    originalPrice: 'US$ 6,99',
+    bumpPrice: 'US$ 3,99',
     accent: 'lilac' as const,
   },
   {
@@ -123,8 +123,8 @@ export const orderBumps = [
     icon: '💪',
     description:
       'Rutinas de ejercicios livianos para proteger las articulaciones, combatir el dolor de espalda y mantener la autonomía corporal.',
-    originalPrice: 'US$ 17,00',
-    bumpPrice: 'US$ 5,40',
+    originalPrice: 'US$ 9,70',
+    bumpPrice: 'US$ 4,70',
     accent: 'neon' as const,
   },
   {
@@ -133,8 +133,8 @@ export const orderBumps = [
     icon: '📋',
     description:
       'Fichas imprimibles para monitorear tu sueño, rutina de suplementación y progreso diario con facilidad.',
-    originalPrice: 'US$ 9,00',
-    bumpPrice: 'US$ 2,90',
+    originalPrice: 'US$ 6,97',
+    bumpPrice: 'US$ 3,97',
     accent: 'lilac' as const,
   },
   {
@@ -143,8 +143,8 @@ export const orderBumps = [
     icon: '🔬',
     description:
       'Descubre exactamente qué suplementos valen la pena y aprende a leer etiquetas sin caer en trampas del mercado.',
-    originalPrice: 'US$ 11,00',
-    bumpPrice: 'US$ 3,80',
+    originalPrice: 'US$ 6,99',
+    bumpPrice: 'US$ 3,90',
     accent: 'neon' as const,
   },
 ]
