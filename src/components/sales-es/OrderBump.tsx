@@ -26,7 +26,7 @@ export default function OrderBump() {
             Mejora tus <span className="text-shimmer">resultados</span>
           </h2>
           <p className="section-subtitle">
-            Agrega estos complementos a tu pedido con hasta 70% de descuento
+            Agrega estos complementos a tu pedido con hasta 52% de descuento
           </p>
         </div>
 
